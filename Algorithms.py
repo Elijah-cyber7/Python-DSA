@@ -1,15 +1,28 @@
+# insertion sort 
+someList  = [10,9,8,7,6,5,4,3,2,1]
 
-someList = [9,8,7,6,5,4,3,2,1]
+def insertion_sort(toSort, sortTo): 
+    for i in range(1, sortTo):  #start the loop from a one offset and go onto the specified end value
+        key = toSort[i]         #assign a variable to hold the satillite value from the key
+        j = i - 1               #create a variable with an offset, one to the left
+        while(j >= 0 and toSort[j] > key): #
+            toSort[j+ 1] = toSort[j]
+            j -=1
+        toSort[j+1] = key 
+    return toSort
+print(insertion_sort(someList, len(someList)))
 
-def insertion_sort(toSort, sortTo):
-	for i in range(1, sortTo): # loop from the second element to a stopping point
-		key = toSort[i]        #get a value to compare to
-		j = i - 1              # get a key to a value to compare to
-		while(j >= 0 and toSort[j] > key):  # while that key is not the beginning of the list and the value is greater than what we compare it to
-			toSort[j+1] = toSort[j]         # shift the greater value to the right one
-			j -= 1                          # compare to the next left element
-		toSort[j+1] = key                   # put the value to compare against to the right of what we compare to
-		print(toSort)
-	return toSort
+# find the lowest value in the list and replace it with whereever it was
 
-insertion_sort(someList, len(someList))
+def selection_sort(toSort, sortTo):
+    for i in range(0, sortTo): # start a loop from 0 to the end of the list 
+        lowest = i             # use the current element in the list as a comparison 
+        for x in range(i, sortTo): #loop from the current element to the end of the list 
+            if toSort[x] < toSort[lowest]: # compare element in nested loop to our old variable
+                lowest = x                  #save the index if element is lower
+        temp = toSort[lowest]               #save the lowest value 
+        toSort[lowest] = toSort[i]          #overwrite whatever the lowest number is with current element
+        toSort[i] = temp                    #replace the current element with the lowest value
+    return toSort
+
+print(selection_sort(someList, len(someList)))
