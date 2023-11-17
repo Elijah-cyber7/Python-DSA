@@ -24,5 +24,18 @@ def selection_sort(toSort, sortTo):
         toSort[lowest] = toSort[i]          #overwrite whatever the lowest number is with current element
         toSort[i] = temp                    #replace the current element with the lowest value
     return toSort
+    
+def binary_serch(someList, target):
+    left = 0
+    right = len(someList)-1
+    mid = (left + right) // 2
+    while left <= right:
+        if someList[mid] == target: return mid
+        if someList[mid] > target:
+            right = mid - 1
+        if someList[mid] < target:
+            left = mid + 1
+        mid = (left + right) // 2
+    return -1
 
 print(selection_sort(someList, len(someList)))
