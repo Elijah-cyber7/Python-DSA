@@ -6,3 +6,8 @@ class Node:
         self.next = none
     
 
+class BinaryTree:
+    def __init__(self, data):
+        self.left = left
+        self.right = right
+        self.data = data
