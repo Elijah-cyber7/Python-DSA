@@ -37,5 +37,10 @@ def binary_serch(someList, target):
             left = mid + 1
         mid = (left + right) // 2
     return -1
+def linear_search(someList, target):
+    for i in someList:
+        if i == target:
+            return someList.indexOf(i)
+
 
 print(selection_sort(someList, len(someList)))
