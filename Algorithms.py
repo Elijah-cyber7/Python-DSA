@@ -1,5 +1,7 @@
 
-import Data Structres
+from DataStructures import Node
+
+
 # insertion sort 
 someList  = [10,9,8,7,6,5,4,3,2,1]
 
@@ -12,7 +14,7 @@ def insertion_sort(toSort, sortTo):
             j -=1
         toSort[j+1] = key 
     return toSort
-print(insertion_sort(someList, len(someList)))
+#print(insertion_sort(someList, len(someList)))
 
 # find the lowest value in the list and replace it with whereever it was
 
@@ -43,6 +45,21 @@ def linear_search(someList, target):
     for i in someList:
         if i == target:
             return someList.indexOf(i)
+### Linked List functions
 
+# factory func
+def create_list(rng: int)-> Node:
+    if(rng <= 0):
+        return None
+    new_node = Node(rng)
+    new_node.data = rng
+    new_node.next = (create_list(rng-1))
+    return new_node
+## linked list traversal
+linkedList = create_list(10)
 
-print(selection_sort(someList, len(someList)))
+while not linkedList is None:
+    print(linkedList.data)
+    linkedList = linkedList.next
+
+#print(selection_sort(someList, len(someList)))
