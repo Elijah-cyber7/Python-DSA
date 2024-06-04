@@ -57,9 +57,16 @@ def create_list(rng: int)-> Node:
     return new_node
 ## linked list traversal
 linkedList = create_list(10)
+def traverseAndPrint(head: Node) -> None:
+    while not head is None:
+        print(head.data)
+        head = head.next
+def insertAtEnd(node: Node, list: Node) -> None:
+    while not list.next is None:
+        list = list.next
+    list.next = node
+insertAtEnd(Node(11), linkedList)
+traverseAndPrint(linkedList)
 
-while not linkedList is None:
-    print(linkedList.data)
-    linkedList = linkedList.next
 
 #print(selection_sort(someList, len(someList)))

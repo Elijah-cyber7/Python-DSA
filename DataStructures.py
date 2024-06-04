@@ -8,7 +8,6 @@ class Node:
         self.data = data
         self.next = None
 
-
 class BinaryTree:
     def __init__(self, data, left, right):
         '''
