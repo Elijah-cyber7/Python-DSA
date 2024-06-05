@@ -65,6 +65,18 @@ def insertAtEnd(node: Node, list: Node) -> None:
     while not list.next is None:
         list = list.next
     list.next = node
+def deleteNode(head: Node, node: Node) -> None:
+    while not head.next is node:
+        head = head.next
+    head.next = head.next.next
+def searchForNode(head: Node, target: int):
+    while not head.next is None:
+        if head.data == target:
+            return
+        else:
+            head = head.next
+
+
 insertAtEnd(Node(11), linkedList)
 traverseAndPrint(linkedList)
 
